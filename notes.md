@@ -4,7 +4,7 @@
 - [How to watch the tests](#how-to-watch-the-tests)
 - [Configuring Jest to show code coverage](#configuring-jest-to-show-code-coverage)
 - [Installing ESLint](#installing-eslint)
-- [How to setup up git pre-hook](#how-to-setup-up-git-pre-hook)
+- [How to setup up a git pre-hook](#how-to-setup-up-a-git-pre-hook)
 
 
 ## Getting started with Jest
@@ -137,9 +137,9 @@ node_modules
 coverage
 ```
 
-## How to setup up git pre-hook
+## How to setup up a git pre-hook
 
-Good software development habits involve running the tests frequently and make sure the code quality standards are met, adding a git-pre-push hook can help you to automate the tasks just before pushing the changes to the repo.
+Good software development involves running the tests frequently and make sure the code quality standards are met, adding a git-pre-push hook can help you to automate the tasks just before pushing the changes to the repo.
 
 To easly do that we need to install [husky 🐶](https://github.com/typicode/husky) a git-hook made easy library.
 
