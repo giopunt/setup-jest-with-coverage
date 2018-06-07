@@ -1,4 +1,4 @@
-# Setup Jest with coverage
+# Setup Jest with coverage 🤹
 
 How to setup Jest in a project and produce a coverage report.
 
