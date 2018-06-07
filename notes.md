@@ -23,7 +23,7 @@ Jest works out of the box so, we just add a test command in our `package.json`
 }
 ```
 
-Place the tests in a __\_\_tests\_\___ folder, or name the test files with .spec.js or .test.js extension.
+Place the tests in a __\_\_tests\_\___ folder, or name the test files with `.spec.js` or `.test.js` extension.
 
 Now we can use `npm test` or `yarn test` from the terminal to run our unit tests. 
 
