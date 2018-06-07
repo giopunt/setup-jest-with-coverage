@@ -18,8 +18,8 @@ Eg.
 Then add the coverage option, every threshold should be set to 100% :
 
 Make sure that:
-- We ignore any configuration file or rename it to `.json`
-- We update `.gitignore` to ignore the `coverage` output folder.
+- You ignore any configuration file or rename it to `.json`
+- You update `.gitignore` to ignore the `coverage` output folder.
 
 Eg.
 ```js
@@ -32,8 +32,8 @@ Eg.
       "src/**/*.js"
     ],
     "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "src/server/siteChromeConfig.js"
+      "/node_modules/" // default value
+      // add here any other PATH that you want to be ignored 
     ],
     "coverageThreshold": {
       "global": {
@@ -49,28 +49,29 @@ Eg.
 
 # Pre-hook ⬆️
 
-Add a pre-push hook to run the linting and unit tests before pushing the changes.
+Good software development habits involve running the tests frequently and make sure the code quality standards are met, adding a git-pre-push hook can help you to automate the tasks just before pushing the changes to the repo.
 
-We can achieve this by installing *[husky|https://github.com/typicode/husky]* (a git-hook wrapper)
+To easly do that we need to install [husky 🐶](https://github.com/typicode/husky) a git-hook made easy library.
 
-```js
+```sh
 # npm
-npm install husky --save-dev
+$ npm install husky --save-dev
 
 #yarn
-yarn add husky -D
+$ yarn add husky -D
 ```
 
-Then configure the pre-push option for husky:
+Then we simply need to write our pre-push hook command in the `package.json`:
 
 ```js
 // package.json
 {
    ...,
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run lint && npm test", // or `yarn ci` ?
-    }
+  "scripts": {
+     ...,
+     "prepush": "npm run lint && npm test", // or `yarn lint && yarn test`
   }
 }
 ```
+
+The next time you try to push your code, husky will run whatever command you defined in your pre-push hook, in this case we are linting our code and running the unit tests with coverage.
