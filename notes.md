@@ -127,7 +127,9 @@ Cool, let's create a basic linting configuration through a file called `.eslintr
 
 You are likley to write es6 and some node code, so we configured `"env"` to include don't validate code specific to browser, es6, jest or node.
 
-We also want to ignore the coverage output and everything in node_modules and to do that we need to create another file called `.eslintignore`
+### Ignoring files during linting
+
+We also want to ignore the coverage output and everything in node_modules and to do that we need to create another file called `.eslintignore`, run `touch .eslintignore` and add these lines:
 
 ```
 // .eslintignore
