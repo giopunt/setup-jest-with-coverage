@@ -129,7 +129,7 @@ You are likley to write es6 and some node code, so we configured `"env"` to incl
 
 ### Ignoring files during linting
 
-We also want to ignore the coverage output and everything in node_modules and to do that we need to create another file called `.eslintignore`, run `touch .eslintignore` and add these lines:
+We also want to ignore the `coverage` output and everything inside `node_modules` and to do that we need to create another file called `.eslintignore`, run `touch .eslintignore` and add these lines:
 
 ```
 // .eslintignore
