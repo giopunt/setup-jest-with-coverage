@@ -15,11 +15,11 @@ Eg.
 }
 ```
 
-Then add the coverage option, every threshold should be set to 100% :
+Then add the coverage option, every threshold should be set to your target value, I will go for 100% for everything:
 
 Make sure that:
-- You ignore any configuration file or rename it to `.json`
-- You update `.gitignore` to ignore the `coverage` output folder.
+- Any configuration file or rename it to `.json` is ignored
+- You have updated `.gitignore` to ignore the `coverage` output folder.
 
 Eg.
 ```js
