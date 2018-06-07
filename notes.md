@@ -4,6 +4,7 @@
 - [How to watch the tests](#how-to-watch-the-tests)
 - [Configuring Jest to show code coverage](#configuring-jest-to-show-code-coverage)
 - [Installing ESLint](#installing-eslint)
+- [Configuring ESLint](#configuring-eslint)
 - [How to setup up a git pre-hook](#how-to-setup-up-a-git-pre-hook)
 
 
@@ -34,7 +35,7 @@ Let's add the test command in our `package.json`
 
 Now we can use `npm test` or `yarn test` from the terminal to run our unit tests. 
 
-### How to watch the tests
+#### How to watch the tests
 
 When in dev mode we are likley to watch the tests running, we can do so by executing jest with the `--watch` flag.
 
@@ -50,7 +51,7 @@ Our `package.json` should look like these now:
 }
 ```
 
-## Configuring Jest to show code coverage
+#### Configuring Jest to show code coverage
 
 Add `--coverage` flag to Jest for the `test` command
 
@@ -110,6 +111,8 @@ $ npm install eslint --save-dev
 $ yarn add eslint -D
 ```
 
+#### Configuring ESLint
+
 Cool, let's create a basic linting configuration through a file called `.eslintrc`, run `touch .eslintrc` and add these lines:
 
 ```
@@ -127,7 +130,7 @@ Cool, let's create a basic linting configuration through a file called `.eslintr
 
 You are likley to write es6 and some node code, so we configured `"env"` to include don't validate code specific to browser, es6, jest or node.
 
-### Ignoring files during linting
+#### Ignoring files during linting
 
 We also want to ignore the `coverage` output and everything inside `node_modules` and to do that we need to create another file called `.eslintignore`, run `touch .eslintignore` and add these lines:
 
