@@ -14,7 +14,24 @@ $ yarn add jest -D
 
 Jest works out of the box so, we just add a test command in our `package.json`
 
-```js
+```json
+// package.json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+Place the tests in a __\_\_tests\_\___ folder, or name the test files with .spec.js or .test.js extension.
+
+Now we can use `npm test` or `yarn test` from the terminal to run our unit tests. 
+
+When in dev mode we are likley to watch the tests running, we can do so by executing jest with the `--watch` flag.
+
+Our `package.json` should look like these now:
+
+```json
 // package.json
 {
   "scripts": {
@@ -24,37 +41,31 @@ Jest works out of the box so, we just add a test command in our `package.json`
 }
 ```
 
-Now try to run `npm run test` or `yarn test` from your terminal, and you will see that Jest will look for any test in your project and run them.
-
 ## Tests Coverage 📊
 
-Add `--coverage` option to Jest in `test` script
+Add `--coverage` flag to Jest for the `test` command
 
-```js
+```json
 // package.json
 {
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   }
 }
 ```
 
-Then add the coverage option, every threshold should be set to your target value, I will go for 100% for everything:
+We want our command to fail in case we are missing our some test so we will define what every threshold should be, I will go  add 100% for everything: statements, branches, functions, lines.
 
-Make sure that:
-- Any configuration file or rename it to `.json` is ignored
-- You have updated `.gitignore` to ignore the `coverage` output folder.
-
-```js
+```json
 // package.json
 {
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "*.js"
     ],
     "coveragePathIgnorePatterns": [
-      "/node_modules/" // default value
-      // add here any other PATH that you want to be ignored 
+      "/node_modules/" // add here any other PATH that you want to be ignored 
     ],
     "coverageThreshold": {
       "global": {
@@ -68,8 +79,44 @@ Make sure that:
 }
 ```
 
+Now when you run `npm test` it will out put in the terminal the result for our coverage and also create a folder called __coverage__ where we can find a full report. Let me blown your mind and run `open coverage/lcov-report/index.html` from your terminal, from here we can interactively navigate through the report and find easly any uncovered test.
+
+__NB__. Update `.gitignore` to exclude the `coverage` output folder.
+
+```
+// .gitignore
+node_modules
+coverage
+```
+
 ## Installing ESLint
 
+Now let's install ESLint by running:
+
+```sh
+# npm
+$ npm install eslint --save-dev
+
+# yarn
+$ yarn add eslint -D
+```
+
+Cool, let's create a basic linting configuration through a file called `.eslintrc`, run `touch .eslintrc` and add these lines:
+
+```
+// .eslintrc
+{
+  "extends": "eslint:recommended"
+}
+```
+
+We also want to ignore coverage and node_modules and to do that we need to create another file called `.eslintignore`
+
+```
+// .eslintignore
+node_modules
+coverage
+```
 
 ## Pre-hook ⬆️
 
@@ -87,7 +134,7 @@ $ yarn add husky -D
 
 Then we simply need to write our `prepush` hook script in the `package.json`, husky will automatically know that's the one to run on `git push`:
 
-```js
+```json
 // package.json
 {
   "scripts": {
