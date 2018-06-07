@@ -1,6 +1,13 @@
 # Code Quality Control with Jest 🤹
 
-## Getting started with Jest 🤹
+- [Getting started with Jest](#getting-started-with-jest)
+- [How to watch the tests](#how-to-watch-the-tests)
+- [Configuring Jest to show code coverage](#configuring-jest-to-show-code-coverage)
+- [Installing ESLint](#installing-eslint)
+- [How to setup up git pre-hook](#how-to-setup-up-git-pre-hook)
+
+
+## Getting started with Jest
 
 To get started we need to install [Jest 🤹](https://facebook.github.io/jest/) as one of our dev dependencies
 
@@ -12,7 +19,9 @@ $ npm install jest --save-dev
 $ yarn add jest -D
 ```
 
-Jest works out of the box so, we just add a test command in our `package.json`
+Jest works out of the box so place the tests in a __\_\_tests\_\___ folder, or name the test files with `.spec.js` or `.test.js` extension.
+
+Let's add the test command in our `package.json`
 
 ```json
 // package.json
@@ -22,8 +31,6 @@ Jest works out of the box so, we just add a test command in our `package.json`
   }
 }
 ```
-
-Place the tests in a __\_\_tests\_\___ folder, or name the test files with `.spec.js` or `.test.js` extension.
 
 Now we can use `npm test` or `yarn test` from the terminal to run our unit tests. 
 
@@ -43,7 +50,7 @@ Our `package.json` should look like these now:
 }
 ```
 
-## Tests Coverage 📊
+## Configuring Jest to show code coverage
 
 Add `--coverage` flag to Jest for the `test` command
 
@@ -67,7 +74,7 @@ We want our command to fail in case we are missing our some test so we will defi
       "*.js"
     ],
     "coveragePathIgnorePatterns": [
-      "/node_modules/" // add here any other PATH that you want to be ignored 
+      "/node_modules/"
     ],
     "coverageThreshold": {
       "global": {
@@ -120,7 +127,7 @@ node_modules
 coverage
 ```
 
-## Pre-hook ⬆️
+## How to setup up git pre-hook
 
 Good software development habits involve running the tests frequently and make sure the code quality standards are met, adding a git-pre-push hook can help you to automate the tasks just before pushing the changes to the repo.
 
@@ -140,7 +147,7 @@ Then we simply need to write our `prepush` hook script in the `package.json`, hu
 // package.json
 {
   "scripts": {
-     "prepush": "npm run lint && npm test", // or `yarn lint && yarn test`
+     "prepush": "npm run lint && npm test"
   }
 }
 ```
