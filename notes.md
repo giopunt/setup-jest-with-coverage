@@ -167,6 +167,6 @@ Then we simply need to write our `prepush` hook script in the `package.json`, hu
 
 There is also a `precommit` option available but we much rather prefer to be free to commit anytime and not slow down our dev process.
 
-Now the next time we try to push our code, husky will run whatever command you entred in the `prepush` hook, in this case we are linting the code and running the unit tests with coverage.   
+Now the next time we try to push our code, husky will run whatever command you entered in the `prepush` hook, in this case we are linting the code and running the unit tests with coverage.   
 
 We did it folks, we are now able to automate some important steps that will ensure our app will never break again. 🐶 *woof!*
