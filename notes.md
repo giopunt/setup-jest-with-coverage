@@ -27,6 +27,8 @@ Place the tests in a __\_\_tests\_\___ folder, or name the test files with `.spe
 
 Now we can use `npm test` or `yarn test` from the terminal to run our unit tests. 
 
+### How to watch the tests
+
 When in dev mode we are likley to watch the tests running, we can do so by executing jest with the `--watch` flag.
 
 Our `package.json` should look like these now:
